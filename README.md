@@ -61,6 +61,12 @@ El sitio está publicado en InfinityFree con PHP 8 y MySQL:
 - URL: https://ontobyte.site.je/
 - Las credenciales de administración se entregan al docente por separado.
 
+## Estado del proyecto
+
+- Versión 1.0 publicada y funcionando.
+- Repositorio inicializado con Git y listo para sincronizar con GitHub.
+- Flujo de trabajo con ramas para nuevas funcionalidades.
+
 ## Autores
 
 - Andrés Díaz
