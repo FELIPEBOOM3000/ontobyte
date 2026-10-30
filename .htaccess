@@ -1,0 +1,28 @@
+# ============================================================================
+# ARCHIVO: .htaccess (raíz del proyecto)
+# ============================================================================
+# Propósito: Configuración de seguridad a nivel raíz del proyecto OntoByte.
+#            Impide el acceso directo desde el navegador a los directorios
+#            internos de la aplicación (config/, app/, database/) y fuerza
+#            todo el tráfico a ingresar exclusivamente por public/.
+# ============================================================================
+
+# Desactivar el listado de directorios en todo el proyecto
+Options -Indexes
+
+# ============================================================================
+# REDIRECCIÓN GLOBAL AL FRONT CONTROLLER
+# Cualquier acceso a la raíz se redirige al directorio público
+# ============================================================================
+RewriteEngine On
+
+# Redirigir la raíz hacia el Front Controller
+RewriteRule ^$ public/ [L]
+RewriteRule (.*) public/$1 [L]
+
+# ============================================================================
+# BLOQUEO EXPLÍCITO DE ACCESO A DIRECTORIOS SENSIBLES
+# Se utilizan reglas de reescritura para devolver 403 (Prohibido) cuando se
+# intenta acceder directamente a los directorios internos de la aplicación.
+# ============================================================================
+RewriteRule ^(config/|app/|database/) - [F,L]

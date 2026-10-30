@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================================
+  ARCHIVO: public/img/logo.svg
+  ============================================================================
+  Propósito: Logotipo corporativo vectorial de OntoByte.
+             Réplica fiel de la insignia `.brand-logo` (cuadro redondeado con
+             degradado verde menta y la letra "O" en azul profundo).
+             Formato SVG: vectorial, ligero, nítido en cualquier resolución.
+             El equipo puede reemplazarlo por el archivo oficial `logo.png` o
+             `logo.webp` en esta misma carpeta (public/img/) sin tocar el código:
+             la referencia en las vistas apunta a IMG_URL . '/logo.svg' y basta
+             con cambiar la extensión si se sustituye el archivo oficial.
+             Se usa en: navbar (42px), footer (48px). Máx 48px vía CSS.
+  ============================================================================
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="OntoByte Logo">
+  <defs>
+    <linearGradient id="obGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Insignia: cuadro redondeado con degradado corporativo -->
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#obGradient)"/>
+
+  <!-- Letra "O" central en azul profundo (marca OntoByte) -->
+  <circle cx="32" cy="32" r="17" fill="none" stroke="#0F172A" stroke-width="7"/>
+</svg>

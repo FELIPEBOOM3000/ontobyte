@@ -1,0 +1,11 @@
+# ============================================================================
+# ARCHIVO: database/.htaccess
+# ============================================================================
+# Propósito: Blindaje del directorio de scripts SQL. Todas las solicitudes
+#            web directas a este directorio son denegadas (código 403).
+#            Los scripts SQL se ejecutan únicamente mediante herramientas
+#            de administración de bases de datos (phpMyAdmin, CLI, etc.).
+# ============================================================================
+
+# Denegar todo acceso web directo a este directorio
+Require all denied

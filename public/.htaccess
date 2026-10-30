@@ -1,0 +1,46 @@
+# ============================================================================
+# ARCHIVO: public/.htaccess
+# ============================================================================
+# Propósito: Configuración del servidor web Apache para el patrón Front
+#            Controller. Redirige TODAS las solicitudes HTTP al archivo
+#            index.php para que el enrutador centralizado maneje cada
+#            petición de forma unificada (URLs amigables y modulares).
+# ============================================================================
+
+# Activar el motor de reescritura de URLs
+RewriteEngine On
+
+# No reescribir si el archivo o directorio solicitado existe
+# (permite acceder directamente a css/, js/, img/ sin pasar por el router)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Reescribir todas las demás solicitudes hacia el Front Controller
+RewriteRule ^ index.php [L]
+
+# ============================================================================
+# PROTECCIÓN DE ARCHIVOS SENSIBLES
+# Bloquea el acceso directo a archivos de configuración y código PHP fuente
+# ============================================================================
+
+# Bloquear acceso a archivos ocultos del sistema
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Evitar listado de directorios (seguridad)
+Options -Indexes
+
+# Configurar página de error personalizada de acceso prohibido
+ErrorDocument 403 /index.php
+
+# ============================================================================
+# SEGURIDAD DE CABECERAS HTTP
+# ============================================================================
+
+# Cabecera X-Content-Type-Options: evita el MIME type sniffing
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

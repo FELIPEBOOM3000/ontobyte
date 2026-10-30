@@ -1,0 +1,10 @@
+# ============================================================================
+# ARCHIVO: app/.htaccess
+# ============================================================================
+# Propósito: Blindaje del directorio de la aplicación (controladores, modelos
+#            y vistas). Todas las solicitudes web directas a este directorio
+#            son denegadas (código 403). Solo PHP del servidor los procesa.
+# ============================================================================
+
+# Denegar todo acceso web directo a este directorio
+Require all denied
